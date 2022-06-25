@@ -1,0 +1,39 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Note {
+  id            Int      @id @default(autoincrement())
+  date_uploaded DateTime @default(now())
+  uploader      Int      /// student id
+  ispublic      Boolean  @default(true)
+  title         String
+  description   String
+  subject       String
+  link          String
+  physicallink  Book?
+}
+
+model Book {
+  id            Int      @id @default(autoincrement())
+  date_uploaded DateTime @default(now())
+  uploader      Int      /// student id
+  ispublic      Boolean  @default(true)
+  title         String
+  description   String?
+  subject       String   /// class type
+  book_type     Int      /// 1 Prep, 2 Summer Reading, 3 Other
+  condition     Int      /// scale from 10(Brand New) to 1(Very Used).
+  taken         Boolean @default(false)
+  onlinelink    Note?   @relation(fields: [noteId], references: [id])
+  noteId        Int?
+}
+
