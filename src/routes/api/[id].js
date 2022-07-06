@@ -1,6 +1,6 @@
 import { prisma } from './_prismac';
 
-/** @type {import('./__types/[id]').RequestHandler} */
+/** @type {import('../../../.svelte-kit/types/src/routes/api/__types/[id]').RequestHandler} */
 export async function get({ params }) {
 	// `params.id` comes from [id].js
 	let item = await prisma.book.findUnique({ // vv easy db manager
