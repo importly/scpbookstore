@@ -1,9 +1,9 @@
 import { prisma } from './_prismac';
 
-/** @type {import('../../../.svelte-kit/types/src/routes/api/__types/[id]').RequestHandler} */
+/** @type {import('../../../.svelte-kit/types/src/routes/books/__types/[id]').RequestHandler} */
 export async function get({ params }) {
 	// `params.id` comes from [id].js
-	let item = await prisma.book.findUnique({ // vv easy db manager
+	const item = await prisma.book.findUnique({ // vv easy db manager
     where: { 
       id: Number(params.id)  // look for a unique book with in the book database with the id given by the website.
     } // id is always unique becuase there is only one id per book, it auto increments.
@@ -11,6 +11,8 @@ export async function get({ params }) {
 
 	if (item) {
 		return {
+			status: 200,
+    		headers: {},
 			body: { item } // if we found the book, give the information back.
 		};
 	}
