@@ -1,3 +1,10 @@
+<!-- <script>
+	export /**
+	 * @type {any}
+	 */
+	let books;
+</script> -->
+
 <div class="navbar shadow">
 	<div class="navbar-start">
 		<div class="dropdown">
@@ -47,3 +54,9 @@
 		</button>
 	</div>
 </div>
+<!-- 
+<div class="grid">
+	{#each books as item}
+		<li>{item.name} x {item.qty}</li>
+	{/each}
+</div> -->
