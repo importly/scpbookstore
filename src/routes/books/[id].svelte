@@ -25,8 +25,18 @@
 </div>
 
 
-<h1>{item.title}</h1>
-<h1>{item.description}</h1>
-<div class=" flex-col lg:flex-row-reverse">
-	<img class="max-w-sm rounded-lg shadow-2xl " src={item.image} />
-</div>
+
+
+<div class="flex mx-5 my-5">
+	<div class="flex-none card rounded-box place-items-center shadow-lg">
+		<div class="artboard ">
+			<img class="max-w-sm rounded-lg shadow-2xl " src={item.image} />
+		</div>
+	</div>
+	<div class="mx-3">
+		<h1>{item.title}</h1>
+		<h1>{item.description}</h1>
+		
+	</div>
+  </div>
+

@@ -8,7 +8,7 @@ export async function GET({ params }) {
 	item = await prisma.book.findUnique({
 			// vv easy db manager
 			where: {
-				id: Number(params.id) // look for a unique book with in the book database with the id given by the website.
+				id: parseInt(params.id) // look for a unique book with in the book database with the id given by the website.
 			} // id is always unique becuase there is only one id per book, it auto increments.
 		});
 

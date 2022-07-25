@@ -57,10 +57,13 @@
 
 <div class="grid gap-4 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 my-5 mx-5">
 	{#each books as book}
-		<a href="books/{book.id}" class="card w-auto border border-base-content/20 bg-base-100 shadow-xl transition-all duration-200 hover:shadow hover:-translate-y-1">
-			<figure><img class="sm:w-44 md:w-64 lg:w-72" src="{book.image}" alt="Book image" /></figure>
+		<a href="books/{book.id}" class="card card-compact w-auto border border-base-content/20 bg-base-100 shadow-xl transition-all duration-200 hover:shadow hover:-translate-y-1">
+			<figure><img class="sm:w-44 md:w-64 lg:w-72 rounded-lg sm:my-1 md:my-3 lg:my-4" src="{book.image}" alt="Book image" /></figure>
 			<div class="card-body">
 				<h2 class="card-title">{book.title}</h2>
+				<div class="card-actions justify-end">
+					<div class="badge badge-outline">{book.subject}</div> 
+				  </div>
 			</div>
 		</a>
 	{/each}
