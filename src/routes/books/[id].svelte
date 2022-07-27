@@ -6,6 +6,50 @@
 	let item;
 </script>
 
+<head>	
+<style>
+	.background{
+		display:block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 50px;
+		width: 50%;
+		padding: 20px 10px;
+		background-color: #FFFFF1;
+	}
+</style>
+<style>
+	.img{
+		display:block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 50%;
+	}
+</style>
+<style>
+	.title{
+		text-align:center;
+  		padding: 50px 32px;
+	}
+</style>
+<style>
+	.description{
+		text-align:center;
+  		padding: 50px 32px;
+	}
+</style>
+<style>
+	.button{
+		display:block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 50%;
+		padding: 30px 10px;
+		background-color: #FFFFFF;
+	}
+</style>
+</head>
+
 <div class="navbar shadow">
 	<div class="navbar-start">
 		<div class="navbar-start">
@@ -26,17 +70,18 @@
 
 
 
-
-<div class="flex mx-5 my-5">
-	<div class="flex-none card rounded-box place-items-center shadow-lg">
-		<div class="artboard ">
-			<img class="max-w-sm rounded-lg shadow-2xl " src={item.image} />
-		</div>
+<div class="flex-none card rounded-box place-items-center shadow-lg background">
+	<div class="title">
+		<h2>{item.title}</h2>
 	</div>
-	<div class="mx-3">
-		<h1>{item.title}</h1>
-		<h1>{item.description}</h1>
-		
+	<div class="artboard ">
+		<img class="max-w-sm rounded-lg shadow-2xl img" src={item.image} alt="book"/>
 	</div>
-  </div>
+	<div class="description">
+		<p>{item.description}</p>
+	</div>
+	<div>
+		<button type="button" style="text-align:center" class="card rounded-box place-items-center shadow-lg button">Check Out</button>
+	</div>
+</div>
 

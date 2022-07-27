@@ -4,7 +4,7 @@ import { prisma } from './_prismac';
 export async function GET({ params }) {
 	// `params.id` comes from [id].js
 	let item;
-
+	
 	item = await prisma.book.findUnique({
 			// vv easy db manager
 			where: {
