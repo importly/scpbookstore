@@ -18,7 +18,7 @@ export async function GET({ params }) {
 		return {
 			status: 200,
 			headers: {},
-			body: { found_books } // if we found the book, give the information back.
+			body: found_books // if we found the book, give the information back.
 		};
 	}
 

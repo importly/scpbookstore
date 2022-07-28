@@ -1,7 +1,7 @@
 <script>
-	import {createEventDispatcher} from "svelte";
+	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
-	
+
 	export /**
 	 * @type {any}
 	 */
@@ -10,11 +10,25 @@
 	 * @type {any}
 	 */
 	let search_term;
-	let found_books;
-	if (search_term) {
-		found_books = fetch("../api/search/"+ search_term +".js")
+	let promise = Promise.resolve([]);
+
+	async function fetchBooks(search_term) {
+		const url = `../api/search/${search_term}`;
+		const response = await self.fetch(url);
+		console.log(`../api/search/${search_term}`);
+		if (response.ok) {
+			return response.json();
+		} else {
+			throw new Error(books);
+		}
 	}
 
+	$: {
+		// Now set it to the real fetch promise
+		if (search_term) {
+			promise = fetchBooks(search_term);
+		}
+	}
 </script>
 
 <div class="navbar shadow">
@@ -49,21 +63,64 @@
 		<a href="." class="btn btn-ghost normal-case text-xl">Stanton Bookstore</a>
 	</div>
 	<div class="navbar-end">
-		<input bind:value={search_term} type="text" placeholder="Search Books" class="input input-bordered w-full max-w-xs" />
+		<input
+			bind:value={search_term}
+			type="text"
+			placeholder="Search Books"
+			class="input input-bordered w-full max-w-xs"
+		/>
 	</div>
 </div>
 
-<div class="grid gap-4 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 my-5 mx-5">
+<div class="grid gap-4  sm:grid-cols-1 md:grid-cols-3 xl:grid-cols-5 my-5 mx-5">
+	{#if search_term}
+	{#await promise}
+		<p>...waiting</p>
+	{:then books}
+		{#each books as book}
+			<a
+				href="books/{book.id}"
+				class="card card-compact w-auto border border-base-content/20 bg-base-100 shadow-xl transition-all duration-200 hover:shadow hover:-translate-y-1"
+			>
+				<figure>
+					<!-- svelte-ignore a11y-img-redundant-alt -->
+					<img
+						class="sm:w-44 md:w-64 lg:w-72 rounded-lg sm:my-1 md:my-3 lg:my-4"
+						src={book.image}
+						alt="Book image"
+					/>
+				</figure>
+				<div class="card-body">
+					<h2 class="card-title">{book.title}</h2>
+					<div class="card-actions justify-end">
+						<div class="badge badge-outline">{book.subject}</div>
+					</div>
+				</div>
+			</a>
+		{/each}
+	{:catch error}
+		<p style="color: red">{error.message}</p>
+	{/await}
+	{:else}
 	{#each books as book}
-		<a href="books/{book.id}" class="card card-compact w-auto border border-base-content/20 bg-base-100 shadow-xl transition-all duration-200 hover:shadow hover:-translate-y-1">
-			<figure><img class="sm:w-44 md:w-64 lg:w-72 rounded-lg sm:my-1 md:my-3 lg:my-4" src="{book.image}" alt="Book image" /></figure>
-			<div class="card-body">
-				<h2 class="card-title">{book.title}</h2>
-				<div class="card-actions justify-end">
-					<div class="badge badge-outline">{book.subject}</div> 
-				  </div>
-			</div>
-		</a>
-	{/each}
-	{found_books}
+			<a
+				href="books/{book.id}"
+				class="card card-compact w-auto border border-base-content/20 bg-base-100 shadow-xl transition-all duration-200 hover:shadow hover:-translate-y-1"
+			>
+				<figure>
+					<img
+						class="sm:w-44 md:w-64 lg:w-72 rounded-lg sm:my-1 md:my-3 lg:my-4"
+						src={book.image}
+						alt="Book image"
+					/>
+				</figure>
+				<div class="card-body">
+					<h2 class="card-title">{book.title}</h2>
+					<div class="card-actions justify-end">
+						<div class="badge badge-outline">{book.subject}</div>
+					</div>
+				</div>
+			</a>
+		{/each}
+	{/if}
 </div>
