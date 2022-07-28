@@ -1,7 +1,7 @@
 <script>
 	// populated with data from the endpoint
 	export /**
-	 * @type {{ title: any; image:any}}
+	 * @type {{ title: any; image:any; subject:any; description:any; condition:any;}}
 	 */
 	let item;
 </script>
@@ -15,30 +15,23 @@
 		margin-top: 50px;
 		width: 50%;
 		padding: 20px 10px;
-		background-color: #FFFFF1;
+		background-color: #FFFFFF;
 	}
-</style>
-<style>
 	.img{
 		display:block;
 		margin-left: auto;
 		margin-right: auto;
 		width: 50%;
 	}
-</style>
-<style>
 	.title{
 		text-align:center;
   		padding: 50px 32px;
+		font-size: 50px;
 	}
-</style>
-<style>
-	.description{
+	.descriptiveText{
 		text-align:center;
-  		padding: 50px 32px;
+  		padding: 25px 32px;
 	}
-</style>
-<style>
 	.button{
 		display:block;
 		margin-left: auto;
@@ -46,6 +39,19 @@
 		width: 50%;
 		padding: 30px 10px;
 		background-color: #FFFFFF;
+	}
+	.condition{
+		display:block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 20px;
+	}
+	.conditionText{
+		display:block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 20px;
+		text-align:center;
 	}
 </style>
 </head>
@@ -77,11 +83,22 @@
 	<div class="artboard ">
 		<img class="max-w-sm rounded-lg shadow-2xl img" src={item.image} alt="book"/>
 	</div>
-	<div class="description">
+
+	<div>
+		<p class="conditionText">Condition: {item.condition} (1 is bad, 10 is brand new)</p>
+		<progress class="progress progress-info w-56 condition" value={item.condition} max="10"></progress>
+	</div>
+
+	<div class="descriptiveText">
 		<p>{item.description}</p>
 	</div>
-	<div>
-		<button type="button" style="text-align:center" class="card rounded-box place-items-center shadow-lg button">Check Out</button>
+
+	<div class="descriptiveText">
+		<p>Subject: {item.subject}</p>
+	</div>
+
+	<div style="text-align:center">
+		<a href="1" role="button" class="btn btn-wide sm:btn-sm md:btn-md lg:btn-lg">Check Out</a>
 	</div>
 </div>
 
