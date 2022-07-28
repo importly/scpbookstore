@@ -85,18 +85,20 @@
 	</div>
 
 	<div>
-		<p class="conditionText">Condition:</p>
-		<progress id="condition" value={item.condition} max=10 class="condition">{item.condition}</progress>
+		<p class="conditionText">Condition: {item.condition} (1 is bad, 10 is brand new)</p>
+		<progress class="progress progress-info w-56 condition" value={item.condition} max="10"></progress>
+	</div>
+
+	<div class="descriptiveText">
+		<p>{item.description}</p>
 	</div>
 
 	<div class="descriptiveText">
 		<p>Subject: {item.subject}</p>
 	</div>
-	<div class="descriptiveText">
-		<p>{item.description}</p>
-	</div>
-	<div>
-		<button type="button" style="text-align:center" class="card rounded-box place-items-center shadow-lg button">Check Out</button>
+
+	<div style="text-align:center">
+		<a href="1" role="button" class="btn btn-wide sm:btn-sm md:btn-md lg:btn-lg">Check Out</a>
 	</div>
 </div>
 
