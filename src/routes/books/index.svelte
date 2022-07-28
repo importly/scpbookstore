@@ -1,8 +1,20 @@
 <script>
+	import {createEventDispatcher} from "svelte";
+	const dispatch = createEventDispatcher();
+	
 	export /**
 	 * @type {any}
 	 */
 	let books;
+	/**
+	 * @type {any}
+	 */
+	let search_term;
+	let found_books;
+	if (search_term) {
+		found_books = fetch("../api/search/"+ search_term +".js")
+	}
+
 </script>
 
 <div class="navbar shadow">
@@ -37,21 +49,7 @@
 		<a href="." class="btn btn-ghost normal-case text-xl">Stanton Bookstore</a>
 	</div>
 	<div class="navbar-end">
-		<button class="btn btn-square btn-ghost bg-accent">
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				class="h-5 w-5"
-				fill="none"
-				viewBox="0 0 24 24"
-				stroke="currentColor"
-				><path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-				/></svg
-			>
-		</button>
+		<input bind:value={search_term} type="text" placeholder="Search Books" class="input input-bordered w-full max-w-xs" />
 	</div>
 </div>
 
@@ -67,4 +65,5 @@
 			</div>
 		</a>
 	{/each}
+	{found_books}
 </div>
