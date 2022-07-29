@@ -1,6 +1,6 @@
 <script>
-	import { createEventDispatcher } from 'svelte';
-	const dispatch = createEventDispatcher();
+	import { fade, blur, fly } from 'svelte/transition';
+	import { flip } from 'svelte/animate';
 
 	export /**
 	 * @type {any}
@@ -74,40 +74,49 @@
 
 <div class="grid gap-4  sm:grid-cols-1 md:grid-cols-3 xl:grid-cols-5 my-5 mx-5">
 	{#if search_term}
-	{#await promise}
-		<p>...waiting</p>
-	{:then books}
-		{#each books as book}
+		{#await promise}
+			<p>...Loading</p>
+		{:then books}
+			{#if books.length != 0}
+				{#each books as book, index (book)}
+					<a
+						href="books/{book.id}"
+						class="card card-compact w-auto border border-base-content/20 bg-base-100 shadow-xl transition-all duration-200 hover:shadow hover:-translate-y-1"
+						animate:flip
+						in:fade
+					>
+						<figure>
+							<!-- svelte-ignore a11y-img-redundant-alt -->
+							<img
+								class="sm:w-44 md:w-64 lg:w-72 rounded-lg sm:my-1 md:my-3 lg:my-4"
+								src={book.image}
+								alt="Book image"
+							/>
+						</figure>
+						<div class="card-body">
+							<h2 class="card-title">{book.title}</h2>
+							<div class="card-actions justify-end">
+								<div class="badge badge-outline">{book.subject}</div>
+							</div>
+						</div>
+					</a>
+				{/each}
+			{:else}
+				<h6 class="content-center">No books found</h6>
+			{/if}
+		{:catch error}
+			<p style="color: red">{error.message}</p>
+		{/await}
+	{:else}
+		{#each books as book, index (book)}
 			<a
 				href="books/{book.id}"
 				class="card card-compact w-auto border border-base-content/20 bg-base-100 shadow-xl transition-all duration-200 hover:shadow hover:-translate-y-1"
+				animate:flip
+				in:fade
 			>
 				<figure>
 					<!-- svelte-ignore a11y-img-redundant-alt -->
-					<img
-						class="sm:w-44 md:w-64 lg:w-72 rounded-lg sm:my-1 md:my-3 lg:my-4"
-						src={book.image}
-						alt="Book image"
-					/>
-				</figure>
-				<div class="card-body">
-					<h2 class="card-title">{book.title}</h2>
-					<div class="card-actions justify-end">
-						<div class="badge badge-outline">{book.subject}</div>
-					</div>
-				</div>
-			</a>
-		{/each}
-	{:catch error}
-		<p style="color: red">{error.message}</p>
-	{/await}
-	{:else}
-	{#each books as book}
-			<a
-				href="books/{book.id}"
-				class="card card-compact w-auto border border-base-content/20 bg-base-100 shadow-xl transition-all duration-200 hover:shadow hover:-translate-y-1"
-			>
-				<figure>
 					<img
 						class="sm:w-44 md:w-64 lg:w-72 rounded-lg sm:my-1 md:my-3 lg:my-4"
 						src={book.image}
