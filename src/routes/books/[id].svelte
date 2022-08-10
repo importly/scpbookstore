@@ -6,56 +6,6 @@
 	let item;
 </script>
 
-<head>	
-<style>
-	.background{
-		display:block;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 50px;
-		width: 50%;
-		padding: 20px 10px;
-		background-color: #FFFFFF;
-	}
-	.img{
-		display:block;
-		margin-left: auto;
-		margin-right: auto;
-		width: 50%;
-	}
-	.title{
-		text-align:center;
-  		padding: 50px 32px;
-		font-size: 50px;
-	}
-	.descriptiveText{
-		text-align:center;
-  		padding: 25px 32px;
-	}
-	.button{
-		display:block;
-		margin-left: auto;
-		margin-right: auto;
-		width: 50%;
-		padding: 30px 10px;
-		background-color: #FFFFFF;
-	}
-	.condition{
-		display:block;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 20px;
-	}
-	.conditionText{
-		display:block;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 20px;
-		text-align:center;
-	}
-</style>
-</head>
-
 <div class="navbar shadow">
 	<div class="navbar-start">
 		<div class="navbar-start">
@@ -75,30 +25,27 @@
 </div>
 
 
-
-<div class="flex-none card rounded-box place-items-center shadow-lg background">
-	<div class="title">
-		<h2>{item.title}</h2>
-	</div>
-	<div class="artboard ">
-		<img class="max-w-sm rounded-lg shadow-2xl img" src={item.image} alt="book"/>
-	</div>
-
+<div class="grid m-10 sm:grid-cols-1 lg:grid-cols-2 gap-3">
 	<div>
-		<p class="conditionText">Condition: {item.condition} (1 is bad, 10 is brand new)</p>
-		<progress class="progress progress-info w-56 condition" value={item.condition} max="10"></progress>
+		<div 
+			class="card card-compact w-auto border border-base-content/20 bg-base-100 shadow-xl "
+		>		
+			<figure>
+				<!-- svelte-ignore a11y-img-redundant-alt -->
+				<img
+					class="sm:w-3/4 md:w-1/2 lg:w-3/4 rounded-lg sm:my-1 md:my-3 lg:my-4"
+					src={item.image}
+					alt="Book image"
+				/>
+			</figure>
+		</div>
 	</div>
-
-	<div class="descriptiveText">
-		<p>{item.description}</p>
-	</div>
-
-	<div class="descriptiveText">
-		<p>Subject: {item.subject}</p>
-	</div>
-
-	<div style="text-align:center">
-		<a href="1" role="button" class="btn btn-wide sm:btn-sm md:btn-md lg:btn-lg">Check Out</a>
+	<div class="card card-compact w-auto border border-base-content/20 bg-base-100 shadow-xl">
+		<div class="card-body">
+			<h2 class="text-3xl text-center">{item.title}</h2>
+			<!-- spacing -->
+			<h1> </h1>
+			<h1 class= "text-center">{item.description}</h1>
+		</div>
 	</div>
 </div>
-
