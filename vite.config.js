@@ -5,12 +5,12 @@ import fs from 'fs';
 /** @type {import('vite').UserConfig} */
 const config = {
         plugins: [sveltekit()],
-        // server: {
-        //         https: {
-        //                 key: fs.readFileSync('/path-to-key'),
-        //                 cert: fs.readFileSync('/path-to-cert')
-        //         }
-        // }
+        server: {
+                https: {
+                        key: fs.readFileSync('./secret/scpbooks.org.key'),
+                        cert: fs.readFileSync('./secret/scpbooks.org.pem')
+                }
+        }
 };
 
 export default config;
