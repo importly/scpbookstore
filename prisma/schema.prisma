@@ -24,6 +24,10 @@ model Book {
   subject       String   /// class type
   book_type     Int      /// 1 Prep, 2 Summer Reading, 3 Other
   condition     Int      /// scale from 10(Brand New) to 1(Very Used).
+  pros          String   @default("")
+  cons          String   @default("")
+  year          Int      @default(2022)/// year of publication
+  
   taken         Boolean @default(false)
   onlinelink    String? 
 }

@@ -21,7 +21,10 @@
 	<div class="navbar-center">
 		<a href=".." class="btn btn-ghost normal-case text-xl">Stanton Bookstore</a>
 	</div>
-	<div class="navbar-end" />
+	<div class="navbar-end">
+		<a href="." class="btn btn-square btn-ghost bg-accent">
+			🔍
+		</a> </div>
 </div>
 
 
@@ -45,12 +48,34 @@
 			<h2 class="text-3xl text-center">{item.title}</h2>
 			<!-- spacing -->
 			<h1> </h1>
-			<h1 class="text-xl text-center">{item.subject}</h1>
+			
+			<h1 class="self-center badge font-bold badge-accent">{item.subject}</h1>
+
 			<h1 class= "text-center text-base">{item.description}</h1>
-			<div >
-				Condition : {item.condition}
-				<progress class="progress" value={item.condition} max="10"></progress>
+
+
+
+			<div class="mt-2" > <!-- Conditions -->
+				<span class="font-bold">Condition:</span>
+				{#if item.condition == 10}
+					<span class="badge font-bold badge-success">Brand New</span>
+					<progress class="progress progress-success" value={item.condition} max="10"></progress>
+				{:else if item.condition < 10 && item.condition >= 8}
+					<span class="badge font-bold badge-success">Pretty Good</span>
+					<progress class="progress progress-success" value={item.condition} max="10"></progress>
+				{:else if item.condition < 8 && item.condition >= 5}
+					<span class="badge font-bold badge-warning">Decent</span>
+					<progress class="progress progress-warning" value={item.condition} max="10"></progress>
+				{:else if item.condition < 5 && item.condition > 3}
+					<span class="badge font-bold badge-warning">Bad</span>
+					<progress class="progress progress-warning" value={item.condition} max="10"></progress>
+				{:else if item.condition <= 3}
+					<span class="badge font-bold badge-error">Terrible</span>
+					<progress class="progress progress-error" value={item.condition} max="10"></progress>
+				{/if}
 			</div>
+
+			<button class="mt-5 btn btn-primary btn-block">Pick Up</button>
 		</div>
 	</div>
 </div>
