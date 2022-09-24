@@ -45,7 +45,12 @@
 			<h2 class="text-3xl text-center">{item.title}</h2>
 			<!-- spacing -->
 			<h1> </h1>
-			<h1 class= "text-center">{item.description}</h1>
+			<h1 class="text-xl text-center">{item.subject}</h1>
+			<h1 class= "text-center text-base">{item.description}</h1>
+			<div >
+				Condition : {item.condition}
+				<progress class="progress" value={item.condition} max="10"></progress>
+			</div>
 		</div>
 	</div>
 </div>
