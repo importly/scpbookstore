@@ -45,15 +45,13 @@
 	</div>
 	<div class="card card-compact w-auto border border-base-content/20 bg-base-100 shadow-xl">
 		<div class="card-body">
-			<h2 class="text-3xl text-center">{item.title}</h2>
+			<h2 class="text-4xl text-center">{item.title}</h2>
 			<!-- spacing -->
 			<h1> </h1>
 			
 			<h1 class="self-center badge font-bold badge-accent">{item.subject}</h1>
 
 			<h1 class= "text-center text-base">{item.description}</h1>
-
-
 
 			<div class="mt-2" > <!-- Conditions -->
 				<span class="font-bold">Condition:</span>
@@ -74,6 +72,20 @@
 					<progress class="progress progress-error" value={item.condition} max="10"></progress>
 				{/if}
 			</div>
+
+			<div class="flex w-full">
+				<div class="grid h-20 flex-grow card rounded-box place-items-center">
+					<h2 class="card-title">Pros</h2>
+					{@html item.pros}
+				</div>
+				<div class="divider divider-horizontal"></div>
+				<div class="grid h-20 flex-grow card rounded-box place-items-center">
+					<h2 class="card-title">Cons</h2>
+					{@html item.cons}
+				</div>
+			</div>
+
+			
 
 			<button class="mt-5 btn btn-primary btn-block">Pick Up</button>
 		</div>
