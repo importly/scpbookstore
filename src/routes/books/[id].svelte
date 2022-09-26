@@ -73,6 +73,30 @@
 				{/if}
 			</div>
 
+			<div class="stats stats-vertical md:stats-horizontal shadow">
+  
+				<div class="stat">
+				  <div class="stat-title">Year Published</div>
+				  <div class="stat-value">{item.year}</div>
+				  <div class="stat-desc">
+					{#if 2023 - item.year == 1}
+						{2023 - item.year} year old
+					{:else}
+						{2023 - item.year} years old
+					{/if}
+				  </div>
+				</div>
+				
+				<div class="stat">
+				  <div class="stat-title">Editor Opinion</div>
+				  <div class="stat-value"></div>
+				  <div class="stat-desc"></div>
+				</div>
+				
+				
+				
+			  </div>
+			  
 			<div class="flex w-full">
 				<div class="grid h-20 flex-grow card rounded-box place-items-center">
 					<h2 class="card-title">Pros</h2>

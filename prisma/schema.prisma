@@ -27,7 +27,7 @@ model Book {
   pros          String   @default("")
   cons          String   @default("")
   year          Int      @default(2022)/// year of publication
-  
+  rating        Float      @default(2.5) /// 1-5 star scale
   taken         Boolean @default(false)
   onlinelink    String? 
 }
