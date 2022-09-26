@@ -84,9 +84,7 @@
 					{@html item.cons}
 				</div>
 			</div>
-
-			
-
+		
 			<button class="mt-5 btn btn-primary btn-block">Pick Up</button>
 		</div>
 	</div>
