@@ -1,7 +1,7 @@
 <script>
 	// populated with data from the endpoint
 	export /**
-	 * @type {{ title: any; image:any; subject:any; description:any; condition:any;}}
+	 * @type {{ title: any; image:any; subject:any; description:any; condition:any; year:any; pros:any; cons:any; }}
 	 */
 	let item;
 </script>
@@ -89,7 +89,18 @@
 				
 				<div class="stat">
 				  <div class="stat-title">Editor Opinion</div>
-				  <div class="stat-value"></div>
+				  <div class="stat-value"> <div class="rating rating-lg rating-half">
+					<input type="radio"  class="bg-green-500 mask mask-star-2 mask-half-1" />
+					<input type="radio"  class="bg-green-500 mask mask-star-2 mask-half-2" />
+					<input type="radio"  class="bg-green-500 mask mask-star-2 mask-half-1" />
+					<input type="radio"  class="bg-green-500 mask mask-star-2 mask-half-2" />
+					<input type="radio"  class="bg-green-500 mask mask-star-2 mask-half-1" />
+					<input type="radio"  class="bg-green-500 mask mask-star-2 mask-half-2" />
+					<input type="radio"  class="bg-green-500 mask mask-star-2 mask-half-1" />
+					<input type="radio"  class="bg-green-500 mask mask-star-2 mask-half-2" />
+					<input type="radio"  class="bg-green-500 mask mask-star-2 mask-half-1" checked />
+					<input type="radio"  class="bg-green-500 mask mask-star-2 mask-half-2" />
+				  </div></div>
 				  <div class="stat-desc"></div>
 				</div>
 				
