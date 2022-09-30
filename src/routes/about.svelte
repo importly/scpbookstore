@@ -53,7 +53,7 @@ bg-base-100 text-base-content
 		<div class="max-w-xl">
 			<h1 class="mb-5 text-5xl font-bold">About</h1>
 			<p class="mb-5">
-				SCP Bookstore is a student run library that provides a wide range of test preparation and
+				The AP/SAT Prep Book Drive is a student run system library that provides a wide range of test preparation and
 				school books for Stanton students. All of our books are donated from upperclassmen who were
 				stuck with books they did not need anymore which allows us to let other students to reuse
 				the books, therefore reducing costs and limiting waste. This website gives the opportunity
@@ -66,13 +66,24 @@ bg-base-100 text-base-content
 				tabindex="0"
 				class=" mt-5 collapse collapse-arrow border border-base-300 rounded-box shadow-2xl"
 			>
-				<div class="collapse-title text-xl font-medium">How to donate books</div>
+				<div class="collapse-title text-xl font-medium">How do I donate books?</div>
 				<div class="collapse-content">
 					<p>
 						A school-wide book drive will be held for 2 weeks where students will be able to drop
-						off any pre-owned Prep books for AP courses, SAT/ACT, etc. at the school library. The
+						off any pre-owned Prep Books for AP courses, SAT/ACT, etc. at the school library. The
 						school librarians will hold onto these donated books for later sorting and review. Check
 						with SGA and the Class Office Social Media for more information about date.
+					</p>
+				</div>
+			</div>
+			<div
+				tabindex="0"
+				class=" mt-5 collapse collapse-arrow border border-base-300 rounded-box shadow-2xl"
+			>
+				<div class="collapse-title text-xl font-medium">How do I pick up a book?</div>
+				<div class="collapse-content">
+					<p>
+						Students will be able to pick up books from a section of the library dedicated to this system.
 					</p>
 				</div>
 			</div>
@@ -83,7 +94,7 @@ bg-base-100 text-base-content
 <footer class="footer items-center p-4 bg-neutral text-neutral-content">
     <div class="items-center grid-flow-col">
       <img src="https://cdn.discordapp.com/attachments/986857054616576020/1006284666032095342/image.png" width="36" height="36" viewBox="0 0 30 30" fill-rule="evenodd" clip-rule="evenodd">
-      <p>Made by Aryan Thakur, Jennifer Chen, Victor Zhang <br> 2022</p>
+      <p>Made by Aryan Thakur, Jennifer Chen, Victor Zhang, and Sid Yerramilli <br> 2022</p>
     </div> 
     <!-- <div class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
       <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>

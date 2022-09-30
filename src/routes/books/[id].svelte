@@ -22,17 +22,13 @@
 		<a href=".." class="btn btn-ghost normal-case text-xl">Stanton Bookstore</a>
 	</div>
 	<div class="navbar-end">
-		<a href="." class="btn btn-square btn-ghost bg-accent">
-			🔍
-		</a> </div>
+		<a href="." class="btn btn-square btn-ghost bg-accent"> 🔍 </a>
+	</div>
 </div>
-
 
 <div class="grid m-10 sm:grid-cols-1 lg:grid-cols-2 gap-3">
 	<div>
-		<div 
-			class="card card-compact w-auto border border-base-content/20 bg-base-100 shadow-xl "
-		>		
+		<div class="card card-compact w-auto border border-base-content/20 bg-base-100 shadow-xl ">
 			<figure>
 				<!-- svelte-ignore a11y-img-redundant-alt -->
 				<img
@@ -43,83 +39,118 @@
 			</figure>
 		</div>
 	</div>
-	<div class="card card-compact w-auto border border-base-content/20 bg-base-100 shadow-xl">
+	<div class="card card-compact w-auto border border-base-content/20 bg-base-100 shadow-2xl">
 		<div class="card-body">
 			<h2 class="text-4xl text-center">{item.title}</h2>
 			<!-- spacing -->
-			<h1> </h1>
-			
-			<h1 class="self-center badge font-bold badge-accent">{item.subject}</h1>
+			<h1 />
 
-			<h1 class= "text-center text-base">{item.description}</h1>
+			<span class="self-center badge font-bold badge-accent">{item.subject}</span>
 
-			<div class="mt-2" > <!-- Conditions -->
-				<span class="font-bold">Condition:</span>
-				{#if item.condition == 10}
-					<span class="badge font-bold badge-success">Brand New</span>
-					<progress class="progress progress-success" value={item.condition} max="10"></progress>
-				{:else if item.condition < 10 && item.condition >= 8}
-					<span class="badge font-bold badge-success">Pretty Good</span>
-					<progress class="progress progress-success" value={item.condition} max="10"></progress>
-				{:else if item.condition < 8 && item.condition >= 5}
-					<span class="badge font-bold badge-warning">Decent</span>
-					<progress class="progress progress-warning" value={item.condition} max="10"></progress>
-				{:else if item.condition < 5 && item.condition > 3}
-					<span class="badge font-bold badge-warning">Bad</span>
-					<progress class="progress progress-warning" value={item.condition} max="10"></progress>
-				{:else if item.condition <= 3}
-					<span class="badge font-bold badge-error">Terrible</span>
-					<progress class="progress progress-error" value={item.condition} max="10"></progress>
-				{/if}
-			</div>
+			<h1 class="text-center text-base">{item.description}</h1>
 
-			<div class="stats stats-vertical md:stats-horizontal shadow">
-  
+			<div class="stats stats-vertical md:stats-horizontal shadow-lg">
 				<div class="stat">
-				  <div class="stat-title">Year Published</div>
-				  <div class="stat-value">{item.year}</div>
-				  <div class="stat-desc">
-					{#if 2023 - item.year == 1}
-						{2023 - item.year} year old
-					{:else}
-						{2023 - item.year} years old
+					<div class="stat-title">Year Published</div>
+					<div class="stat-value">{item.year}</div>
+					<div class="stat-desc">
+						{#if 2023 - item.year == 1}
+							{2023 - item.year} year old
+						{:else}
+							{2023 - item.year} years old
+						{/if}
+					</div>
+				</div>
+
+				<div class="stat">
+					<div class="stat-title">Editor Opinion</div>
+					<div class="my-3">
+					{#if item.rating > 4}
+						<span class="badge font-bold badge-success">
+							{#if item.rating == 1}
+								{item.rating} star
+							{:else}
+								{item.rating} stars
+							{/if}
+						</span>
+						<progress class="progress progress-success " value={item.rating} max="5" />
+					{:else if item.rating <= 4 && item.rating > 3}
+						<span class="badge font-bold badge-success">
+							{#if item.rating == 1}
+								{item.rating} star
+							{:else}
+								{item.rating} stars
+							{/if}
+						</span>
+						<progress class="progress progress-success" value={item.rating} max="5" />
+					{:else if item.rating <= 3 && item.rating > 2}
+						<span class="badge font-bold badge-warning">
+							{#if item.rating == 1}
+								{item.rating} star
+							{:else}
+								{item.rating} stars
+							{/if}
+						</span>
+						<progress class="progress progress-warning" value={item.rating} max="5" />
+					{:else if item.rating <= 2 && item.rating > 1}
+						<span class="badge font-bold badge-warning">
+							{#if item.rating == 1}
+								{item.rating} star
+							{:else}
+								{item.rating} stars
+							{/if}
+						</span>
+						<progress class="progress progress-warning" value={item.rating} max="5" />
+					{:else if item.rating <= 1}
+						<span class="badge font-bold badge-error">
+							{#if item.rating == 1}
+								{item.rating} star
+							{:else}
+								{item.rating} stars
+							{/if}
+						</span>
+						<progress class="progress progress-error" value={item.rating} max="5" />
 					{/if}
-				  </div>
+					</div>
+				</div>
+
+				<div class="stat">
+					<!-- Conditions -->
+					<div class="stat-title">Condition</div>
+					<div class="my-3">
+					{#if item.condition == 10}
+						<span class="badge font-bold badge-success">Brand New</span>
+						<progress class="progress progress-success" value={item.condition} max="10" />
+					{:else if item.condition < 10 && item.condition >= 8}
+						<span class="badge font-bold badge-success">Pretty Good</span>
+						<progress class="progress progress-success" value={item.condition} max="10" />
+					{:else if item.condition < 8 && item.condition >= 5}
+						<span class="badge font-bold badge-warning">Decent</span>
+						<progress class="progress progress-warning" value={item.condition} max="10" />
+					{:else if item.condition < 5 && item.condition > 3}
+						<span class="badge font-bold badge-warning">Bad</span>
+						<progress class="progress progress-warning" value={item.condition} max="10" />
+					{:else if item.condition <= 3}
+						<span class="badge font-bold badge-error">Terrible</span>
+						<progress class="progress progress-error" value={item.condition} max="10" />
+					{/if}
+					</div>
+				</div>
+			</div>
+
+
+			<div class="stats stats-vertical lg:stats-horizontal shadow-2xl">
+				<div class="stat">
+				  <div class="stat-title card-title">Pros</div>
+				  {@html item.pros}
 				</div>
 				
 				<div class="stat">
-				  <div class="stat-title">Editor Opinion</div>
-				  <div class="stat-value"> <div class="rating rating-lg rating-half">
-					<input type="radio"  class="bg-green-500 mask mask-star-2 mask-half-1" />
-					<input type="radio"  class="bg-green-500 mask mask-star-2 mask-half-2" />
-					<input type="radio"  class="bg-green-500 mask mask-star-2 mask-half-1" />
-					<input type="radio"  class="bg-green-500 mask mask-star-2 mask-half-2" />
-					<input type="radio"  class="bg-green-500 mask mask-star-2 mask-half-1" />
-					<input type="radio"  class="bg-green-500 mask mask-star-2 mask-half-2" />
-					<input type="radio"  class="bg-green-500 mask mask-star-2 mask-half-1" />
-					<input type="radio"  class="bg-green-500 mask mask-star-2 mask-half-2" />
-					<input type="radio"  class="bg-green-500 mask mask-star-2 mask-half-1" checked />
-					<input type="radio"  class="bg-green-500 mask mask-star-2 mask-half-2" />
-				  </div></div>
-				  <div class="stat-desc"></div>
-				</div>
-				
-				
-				
-			  </div>
-			  
-			<div class="flex w-full">
-				<div class="grid h-20 flex-grow card rounded-box place-items-center">
-					<h2 class="card-title">Pros</h2>
-					{@html item.pros}
-				</div>
-				<div class="divider divider-horizontal"></div>
-				<div class="grid h-20 flex-grow card rounded-box place-items-center">
-					<h2 class="card-title">Cons</h2>
+				  <div class="stat-title card-title">Cons</div>
 					{@html item.cons}
-				</div>
-			</div>
-		
+				</div>				
+			  </div>
+
 			<button class="mt-5 btn btn-primary btn-block">Pick Up</button>
 		</div>
 	</div>
