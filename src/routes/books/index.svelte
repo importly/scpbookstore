@@ -67,6 +67,7 @@
 			type="text"
 			placeholder="Search Books"
 			class="input input-bordered w-full max-w-xs"
+
 		/>
 	</div>
 </div>
