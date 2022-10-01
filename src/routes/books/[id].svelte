@@ -1,7 +1,7 @@
 <script>
 	// populated with data from the endpoint
 	export /**
-	 * @type {{ title: any; image:any; subject:any; description:any; condition:any; year:any; pros:any; cons:any; }}
+	 * @type {{ title: any; image:any; subject:any; description:any; condition:any; year:any; pros:any; cons:any; onlinelink:any;}}
 	 */
 	let item;
 </script>
@@ -151,7 +151,11 @@
 				</div>				
 			  </div>
 
-			<button class="mt-5 btn btn-primary btn-block">Pick Up</button>
+
+			<div class="btn-group mt-5">
+				<a class="btn btn-primary">Pick Up</a>
+				<a href="{item.onlinelink}" class="btn btn-secondary">Amazon Link</a>
+			</div>
 		</div>
 	</div>
 </div>
