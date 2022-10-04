@@ -41,15 +41,15 @@
 	</div>
 	<div class="card card-compact w-auto border border-base-content/20 bg-base-100 shadow-2xl">
 		<div class="card-body">
-			<h2 class="text-4xl text-center">{item.title}</h2>
+			<h2 class="text-4xl text-center mt-8 mb-4">{item.title}</h2>
 			<!-- spacing -->
 			<h1 />
 
-			<span class="self-center badge font-bold badge-accent">{item.subject}</span>
+			<span class="self-center badge font-bold badge-accent mb-4">{item.subject}</span>
 
 			<h1 class="text-center text-base">{item.description}</h1>
 
-			<div class="stats stats-vertical md:stats-horizontal shadow-lg">
+			<div class="stats stats-vertical md:stats-horizontal shadow-lg my-5">
 				<div class="stat">
 					<div class="stat-title">Year Published</div>
 					<div class="stat-value">{item.year}</div>
@@ -152,9 +152,9 @@
 			  </div>
 
 
-			<div class="btn-group mt-5">
+			<div class="btn-group justify-center mt-5">
 				<a class="btn btn-primary">Pick Up</a>
-				<a href="{item.onlinelink}" class="btn btn-secondary">Amazon Link</a>
+				<a href="{item.onlinelink}" class="btn btn-second">Amazon Link</a>
 			</div>
 		</div>
 	</div>
