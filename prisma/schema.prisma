@@ -2,8 +2,8 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
-  previewFeatures = ["fullTextSearch","fullTextIndex"]
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch", "fullTextIndex"]
 }
 
 datasource db {
@@ -12,21 +12,32 @@ datasource db {
 }
 
 model Book {
-  id            Int      @id @default(autoincrement())
-  image         String?  
-  date_uploaded DateTime @default(now())
-  uploader      Int      /// student id
-  ispublic      Boolean  @default(true)
+  id            Int            @id @default(autoincrement())
+  image         String?
+  date_uploaded DateTime       @default(now())
+  uploader      Int /// student id
+  ispublic      Boolean        @default(true)
   title         String
   description   String?
-  subject       String   /// class type
-  book_type     Int      /// 1 Prep, 2 Summer Reading, 3 Other
-  condition     Int      /// scale from 10(Brand New) to 1(Very Used).
-  pros          String   @default("")
-  cons          String   @default("")
-  year          Int      @default(2022)/// year of publication
-  rating        Float    @default(2.5) /// 0.5-5 star scale
-  taken         Boolean @default(false)
-  onlinelink    String? 
+  subject       String /// class type
+  book_type     Int /// 1 Prep, 2 Summer Reading, 3 Other
+  pros          String         @default("")
+  cons          String         @default("")
+  year          Int            @default(2022) /// year of publication
+  rating        Float          @default(2.5) /// 0.5-5 star scale
+  onlinelink    String?        @default("")
+  physicalbooks PhysicalBook[]
 }
 
+model PhysicalBook {
+  id            Int      @id @default(autoincrement())
+  image         String?
+  date_uploaded DateTime @default(now())
+  uploader      Int /// student id
+  ispublic      Boolean  @default(true)
+  condition     Int /// scale from 10(Brand New) to 1(Very Used).
+  rating        Float    @default(2.5) /// 0.5-5 star scale
+  taken         Boolean  @default(false)
+  Book          Book?    @relation(fields: [bookId], references: [id])
+  bookId        Int?
+}
