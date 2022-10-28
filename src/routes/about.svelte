@@ -50,43 +50,7 @@ bg-base-100 text-base-content
 >
 	<div class="hero-overlay bg-opacity-90" />
 	<div class="hero-content text-center text-neutral-content">
-		<div class="max-w-xl">
-			<h1 class="mb-5 text-5xl font-bold">About</h1>
-			<p class="mb-5">
-				The AP/SAT Prep Book Drive is a student run system library that provides a wide range of test preparation and
-				school books for Stanton students. All of our books are donated from upperclassmen who were
-				stuck with books they did not need anymore which allows us to let other students to reuse
-				the books, therefore reducing costs and limiting waste. This website gives the opportunity
-				for other students to benefit from their donated books.
-			</p>
-			<br />
-			<!-- <a href="/books" class="btn">View Books</a> -->
-
-			<div
-				tabindex="0"
-				class=" mt-5 collapse collapse-arrow border border-base-300 rounded-box shadow-2xl"
-			>
-				<div class="collapse-title text-xl font-medium">How do I donate books?</div>
-				<div class="collapse-content">
-					<p>
-						A school-wide book drive will be held for 2 weeks where students will be able to drop
-						off any pre-owned Prep Books for AP courses, SAT/ACT, etc. at the school library. The
-						school librarians will hold onto these donated books for later sorting and review. Check
-						with SGA and the Class Office Social Media for more information about date.
-					</p>
-				</div>
-			</div>
-			<div
-				tabindex="0"
-				class=" mt-5 collapse collapse-arrow border border-base-300 rounded-box shadow-2xl"
-			>
-				<div class="collapse-title text-xl font-medium">How do I pick up a book?</div>
-				<div class="collapse-content">
-					<p>
-						Students will be able to pick up books from a section of the library dedicated to this system.
-					</p>
-				</div>
-				
+		<div class="max-w-xl">				
 			</div>
 			<h1 class="mb-5 mt-8 text-5xl font-bold">The Importance of Prep Books</h1>
 			<p>
@@ -106,6 +70,41 @@ bg-base-100 text-base-content
 			</p>
 		</div>
 		
+		<h1 class="mb-5 text-5xl font-bold">About</h1>
+		<p class="mb-5">
+			The AP/SAT Prep Book Drive is a student run system library that provides a wide range of test preparation and
+			school books for Stanton students. All of our books are donated from upperclassmen who were
+			stuck with books they did not need anymore which allows us to let other students to reuse
+			the books, therefore reducing costs and limiting waste. This website gives the opportunity
+			for other students to benefit from their donated books.
+		</p>
+		<br />
+		<!-- <a href="/books" class="btn">View Books</a> -->
+
+		<div
+			tabindex="0"
+			class=" mt-5 collapse collapse-arrow border border-base-300 rounded-box shadow-2xl"
+		>
+			<div class="collapse-title text-xl font-medium">How do I donate books?</div>
+			<div class="collapse-content">
+				<p>
+					A school-wide book drive will be held for 2 weeks where students will be able to drop
+					off any pre-owned Prep Books for AP courses, SAT/ACT, etc. at the school library. The
+					school librarians will hold onto these donated books for later sorting and review. Check
+					with SGA and the Class Office Social Media for more information about date.
+				</p>
+			</div>
+		</div>
+		<div
+			tabindex="0"
+			class=" mt-5 collapse collapse-arrow border border-base-300 rounded-box shadow-2xl"
+		>
+			<div class="collapse-title text-xl font-medium">How do I pick up a book?</div>
+			<div class="collapse-content">
+				<p>
+					Students will be able to pick up books from a section of the library dedicated to this system.
+				</p>
+			</div>
 	</div>
 </div>
 
