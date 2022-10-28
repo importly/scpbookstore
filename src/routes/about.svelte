@@ -86,8 +86,26 @@ bg-base-100 text-base-content
 						Students will be able to pick up books from a section of the library dedicated to this system.
 					</p>
 				</div>
+				
 			</div>
+			<h1 class="mb-5 mt-8 text-5xl font-bold">The Importance of Prep Books</h1>
+			<p>
+				According to College Board, with just 6 to 8 hours of prep, students can raise their SAT scores by an average of 90 points on their SAT scores. 
+			</p>
+			<div class="stats shadow mt-5">
+  
+				<div class="stat">
+				  <div class="stat-title">Hours to studying Official SAT Practice book</div>
+				  <div class="stat-value">6-8 hours = 90+ SAT score</div>
+				  <div class="stat-desc">Very effective</div>
+				</div>
+				
+			  </div>
+			<p class="mt-5">
+				Going to a competitive college preparatory school, where 100% of students take AP classes, we have noticed that many of our fellow classmates want to prepare for tests but are unable to access high-quality study resources
+			</p>
 		</div>
+		
 	</div>
 </div>
 

@@ -16,7 +16,7 @@
         <div class="card-body">
           <div class="form-control">
             <label class="label">
-              <span class="label-text">Email</span>
+              <span class="label-text"></span>
             </label>
             <input type="text" placeholder="email" class="input input-bordered" />
           </div>
