@@ -15,22 +15,16 @@
       <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
         <div class="card-body">
           <div class="form-control">
+            
             <label class="label">
-              <span class="label-text"></span>
+              <span class="label-text">Enter Your Student ID and Press Checkout Below to Confirm</span>
             </label>
-            <input type="text" placeholder="email" class="input input-bordered" />
+            <input type="text" placeholder="Student ID" class="input input-bordered" />
           </div>
-          <div class="form-control">
-            <label class="label">
-              <span class="label-text">Password</span>
-            </label>
-            <input type="text" placeholder="password" class="input input-bordered" />
-            <label class="label">
-              <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
-            </label>
-          </div>
-          <div class="form-control mt-6">
-            <button class="btn btn-primary">Login</button>
+                    <div class="form-control mt-6">
+                      
+            <button class="btn btn-primary">Checkout</button>
+            <a href="../books/16" class="btn btn-primary mt-3">Review Book</a>
           </div>
         </div>
       </div>

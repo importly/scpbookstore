@@ -43,7 +43,6 @@
 		<div class="card-body">
 			<h2 class="text-4xl text-center mt-8 mb-4">{item.title}</h2>
 			<!-- spacing -->
-			<h1 />
 
 			<span class="self-center badge font-bold badge-accent mb-4">{item.subject}</span>
 
@@ -113,9 +112,9 @@
 					{/if}
 					</div>
 				</div>
-
+<!--
 				<div class="stat">
-					<!-- Conditions -->
+					<!-- Conditions 
 					<div class="stat-title">Condition</div>
 					<div class="my-3">
 					{#if item.condition == 10}
@@ -135,7 +134,7 @@
 						<progress class="progress progress-error" value={item.condition} max="10" />
 					{/if}
 					</div>
-				</div>
+				</div> -->
 			</div>
 
 
@@ -153,7 +152,7 @@
 
 
 			<div class="btn-group justify-center mt-5">
-				<a class="btn btn-primary">Pick Up</a>
+				<!-- <a class="btn btn-primary">Pick Up</a> -->
 				<a href="{item.onlinelink}" class="btn btn-second">Amazon Link</a>
 			</div>
 		</div>
