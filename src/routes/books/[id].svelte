@@ -153,7 +153,7 @@
 
 			<div class="btn-group justify-center mt-5">
 				<!-- <a class="btn btn-primary">Pick Up</a> -->
-				<a href="{item.onlinelink}" class="btn btn-second">Amazon Link</a>
+				<a href="{item.onlinelink}" target="_blank" rel="noreferrer noopener" class="btn btn-second">Amazon Link</a>
 			</div>
 		</div>
 	</div>
