@@ -1,0 +1,6 @@
+[tool.pyright]
+include = [
+    "./qr_generation/gen.ipynb",
+]
+
+typeCheckingMode = "strict"

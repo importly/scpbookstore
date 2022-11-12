@@ -40,4 +40,5 @@ model PhysicalBook {
   taken         Boolean  @default(false)
   Book          Book?    @relation(fields: [bookId], references: [id])
   bookId        Int?
+  hashedId      String   @default("none")
 }

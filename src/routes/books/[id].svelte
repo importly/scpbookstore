@@ -64,55 +64,55 @@
 				<div class="stat">
 					<div class="stat-title">Editor Opinion</div>
 					<div class="my-3">
-					{#if item.rating > 4}
-						<span class="badge font-bold badge-success">
-							{#if item.rating == 1}
-								{item.rating} star
-							{:else}
-								{item.rating} stars
-							{/if}
-						</span>
-						<progress class="progress progress-success " value={item.rating} max="5" />
-					{:else if item.rating <= 4 && item.rating > 3}
-						<span class="badge font-bold badge-success">
-							{#if item.rating == 1}
-								{item.rating} star
-							{:else}
-								{item.rating} stars
-							{/if}
-						</span>
-						<progress class="progress progress-success" value={item.rating} max="5" />
-					{:else if item.rating <= 3 && item.rating > 2}
-						<span class="badge font-bold badge-warning">
-							{#if item.rating == 1}
-								{item.rating} star
-							{:else}
-								{item.rating} stars
-							{/if}
-						</span>
-						<progress class="progress progress-warning" value={item.rating} max="5" />
-					{:else if item.rating <= 2 && item.rating > 1}
-						<span class="badge font-bold badge-warning">
-							{#if item.rating == 1}
-								{item.rating} star
-							{:else}
-								{item.rating} stars
-							{/if}
-						</span>
-						<progress class="progress progress-warning" value={item.rating} max="5" />
-					{:else if item.rating <= 1}
-						<span class="badge font-bold badge-error">
-							{#if item.rating == 1}
-								{item.rating} star
-							{:else}
-								{item.rating} stars
-							{/if}
-						</span>
-						<progress class="progress progress-error" value={item.rating} max="5" />
-					{/if}
+						{#if item.rating > 4}
+							<span class="badge font-bold badge-success">
+								{#if item.rating == 1}
+									{item.rating} star
+								{:else}
+									{item.rating} stars
+								{/if}
+							</span>
+							<progress class="progress progress-success " value={item.rating} max="5" />
+						{:else if item.rating <= 4 && item.rating > 3}
+							<span class="badge font-bold badge-success">
+								{#if item.rating == 1}
+									{item.rating} star
+								{:else}
+									{item.rating} stars
+								{/if}
+							</span>
+							<progress class="progress progress-success" value={item.rating} max="5" />
+						{:else if item.rating <= 3 && item.rating > 2}
+							<span class="badge font-bold badge-warning">
+								{#if item.rating == 1}
+									{item.rating} star
+								{:else}
+									{item.rating} stars
+								{/if}
+							</span>
+							<progress class="progress progress-warning" value={item.rating} max="5" />
+						{:else if item.rating <= 2 && item.rating > 1}
+							<span class="badge font-bold badge-warning">
+								{#if item.rating == 1}
+									{item.rating} star
+								{:else}
+									{item.rating} stars
+								{/if}
+							</span>
+							<progress class="progress progress-warning" value={item.rating} max="5" />
+						{:else if item.rating <= 1}
+							<span class="badge font-bold badge-error">
+								{#if item.rating == 1}
+									{item.rating} star
+								{:else}
+									{item.rating} stars
+								{/if}
+							</span>
+							<progress class="progress progress-error" value={item.rating} max="5" />
+						{/if}
 					</div>
 				</div>
-<!--
+				<!--
 				<div class="stat">
 					<!-- Conditions 
 					<div class="stat-title">Condition</div>
@@ -137,23 +137,23 @@
 				</div> -->
 			</div>
 
-
 			<div class="stats stats-vertical lg:stats-horizontal shadow-2xl">
 				<div class="stat">
-				  <div class="stat-title card-title">Pros</div>
-				  {@html item.pros}
+					<div class="stat-title card-title">Pros</div>
+					{@html item.pros}
 				</div>
-				
-				<div class="stat">
-				  <div class="stat-title card-title">Cons</div>
-					{@html item.cons}
-				</div>				
-			  </div>
 
+				<div class="stat">
+					<div class="stat-title card-title">Cons</div>
+					{@html item.cons}
+				</div>
+			</div>
 
 			<div class="btn-group justify-center mt-5">
 				<!-- <a class="btn btn-primary">Pick Up</a> -->
-				<a href="{item.onlinelink}" target="_blank" rel="noreferrer noopener" class="btn btn-second">Amazon Link</a>
+				<a href={item.onlinelink} target="_blank" rel="noreferrer noopener" class="btn btn-second"
+					>Amazon Link</a
+				>
 			</div>
 		</div>
 	</div>

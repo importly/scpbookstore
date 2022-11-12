@@ -9,8 +9,8 @@ export async function GET({ params }) {
 		// vv easy db manager
 		where: {
 			title: {
-                contains: params.search
-            }  // look for a unique book with in the book database with the id given by the website. 
+				contains: params.search
+			} // look for a unique book with in the book database with the id given by the website.
 		} // id is always unique becuase there is only one id per book, it auto increments.
 	});
 

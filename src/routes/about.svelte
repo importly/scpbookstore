@@ -68,7 +68,7 @@ bg-base-100 text-base-content
 				we have noticed that many of our fellow classmates want to prepare for tests but are unable
 				to access high-quality study resources
 			</p>
-			
+
 			<h1 class="mb-5 mt-24 text-5xl font-bold">About</h1>
 			<p class="mb-5">
 				The AP/SAT Prep Book Drive is a student run system library that provides a wide range of
