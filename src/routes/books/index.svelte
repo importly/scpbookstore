@@ -15,7 +15,6 @@
 	async function fetchBooks(search_term) {
 		const url = `../api/search/${search_term}`;
 		const response = await self.fetch(url);
-		console.log(`../api/search/${search_term}`);
 		if (response.ok) {
 			return response.json();
 		} else {
