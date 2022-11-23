@@ -6,10 +6,10 @@ import fs from 'fs';
 const config = {
 	plugins: [sveltekit()],
 	server: {
-	        https: {
-	                key: fs.readFileSync('./secret/scpbooks.org.key'),
-	                cert: fs.readFileSync('./secret/scpbooks.org.pem')
-	        }
+		https: {
+			key: fs.readFileSync('./secret/scpbooks.org.key'),
+			cert: fs.readFileSync('./secret/scpbooks.org.pem')
+		}
 	}
 };
 

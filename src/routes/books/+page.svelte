@@ -1,5 +1,4 @@
 <script>
-
 	import { fade, blur, fly } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
 	import { safe_not_equal } from 'svelte/internal';
@@ -18,7 +17,7 @@
 	 * @param {string} [search]
 	 */
 	async function fetch_books(search) {
-		if (search === undefined || search == "") return;
+		if (search === undefined || search == '') return;
 		const res = await fetch(`../api/search/${search}`);
 		const text = await res.json();
 
@@ -28,14 +27,13 @@
 			throw new Error(text);
 		}
 	}
-	
+
 	let promise = fetch_books();
 
 	$: {
 		promise = fetch_books(search_term);
 		console.log(promise);
 	}
-
 </script>
 
 <div class="navbar shadow">
@@ -83,7 +81,6 @@
 		{#await promise}
 			<p>...Loading</p>
 		{:then books}
-
 			{#if books.length != 0}
 				{#each books as book, index (book)}
 					<a

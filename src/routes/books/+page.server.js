@@ -14,7 +14,7 @@ export async function load({ params }) {
 	});
 
 	if (books) {
-		return {books}
+		return { books };
 	}
 
 	return error(400, 'not found');

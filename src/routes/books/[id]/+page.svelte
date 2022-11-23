@@ -1,7 +1,6 @@
 <script>
-	export 
-	let data;
-	let {item} = data;
+	export let data;
+	let { item } = data;
 </script>
 
 <div class="navbar shadow">
