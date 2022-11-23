@@ -1,33 +1,41 @@
 <script>
+
 	import { fade, blur, fly } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
+	import { safe_not_equal } from 'svelte/internal';
 
-	export /**
+	/*
 	 * @type {any}
 	 */
-	let books;
 	/**
-	 * @type {any}
+	 * @type {string | undefined}
 	 */
 	let search_term;
-	let promise = Promise.resolve([]);
 
-	async function fetchBooks(search_term) {
-		const url = `../api/search/${search_term}`;
-		const response = await self.fetch(url);
-		if (response.ok) {
-			return response.json();
+	export let data;
+	let { books } = data;
+	/**
+	 * @param {string} [search]
+	 */
+	async function fetch_books(search) {
+		if (search === undefined || search == "") return;
+		const res = await fetch(`../api/search/${search}`);
+		const text = await res.json();
+
+		if (res.ok) {
+			return text;
 		} else {
-			throw new Error(books);
+			throw new Error(text);
 		}
 	}
+	
+	let promise = fetch_books();
 
 	$: {
-		// Now set it to the real fetch promise
-		if (search_term) {
-			promise = fetchBooks(search_term);
-		}
+		promise = fetch_books(search_term);
+		console.log(promise);
 	}
+
 </script>
 
 <div class="navbar shadow">
@@ -49,7 +57,7 @@
 				>
 			</label>
 			<ul
-				tabindex="0"
+				tabindex="1"
 				class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
 			>
 				<li><a href="/books">Books</a></li>
@@ -75,6 +83,7 @@
 		{#await promise}
 			<p>...Loading</p>
 		{:then books}
+
 			{#if books.length != 0}
 				{#each books as book, index (book)}
 					<a

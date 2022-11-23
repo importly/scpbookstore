@@ -1,7 +1,8 @@
+import { error, json } from '@sveltejs/kit';
 import { prisma } from './_prismac';
 
-/** @type {import('../../../.svelte-kit/types/src/routes/books/__types/index').RequestHandler} */
-export async function GET({ params }) {
+/** @type {import('../../../.svelte-kit/types/src/routes/books/__types/index').PageServerLoad} */
+export async function load({ params }) {
 	// `params.id` comes from [id].js
 	let books;
 
@@ -13,14 +14,8 @@ export async function GET({ params }) {
 	});
 
 	if (books) {
-		return {
-			status: 200,
-			headers: {},
-			body: { books } // if we found the book, give the information back.
-		};
+		return {books}
 	}
 
-	return {
-		status: 404 // idk what happened, probably didn't find the book
-	};
+	return error(400, 'not found');
 }

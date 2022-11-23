@@ -1,9 +1,7 @@
 <script>
-	// populated with data from the endpoint
-	export /**
-	 * @type {{ title: any; image:any; subject:any; description:any; condition:any; year:any; pros:any; cons:any; onlinelink:any;}}
-	 */
-	let item;
+	export 
+	let data;
+	let {item} = data;
 </script>
 
 <div class="navbar shadow">

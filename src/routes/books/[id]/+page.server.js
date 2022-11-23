@@ -1,11 +1,11 @@
-import { prisma } from './_prismac';
+import { prisma } from '../_prismac';
+import { error } from '@sveltejs/kit';
 
-/** @type {import('../../../.svelte-kit/types/src/routes/books/__types/[id]').RequestHandler} */
-export async function GET({ params }) {
+export async function load({ params }) {
 	// `params.id` comes from [id].js
 	let item;
 
-	if (isNaN(parseInt(params.id))) return { status: 404 };
+	if (isNaN(parseInt(params.id))) throw error(400, 'not found');
 
 	item = await prisma.book.findUnique({
 		// vv easy db manager
@@ -15,15 +15,9 @@ export async function GET({ params }) {
 	});
 
 	if (item) {
-		return {
-			status: 200,
-			headers: {},
-			body: { item } // if we found the book, give the information back.
-		};
+		return {item}
 	}
 
-	return {
-		status: 404 // idk what happened, probably didn't find the book
-	};
+	throw error(400, 'not found');
 }
 // try to add

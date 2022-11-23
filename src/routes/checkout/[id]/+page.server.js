@@ -1,11 +1,12 @@
-import { prisma } from '../books/_prismac';
+import { error, json } from '@sveltejs/kit';
+import { prisma } from '../../books/_prismac';
 
-/** @type {import('../../../.svelte-kit/types/src/routes/checkout/__types/[id]').RequestHandler} */
-export async function GET({ params }) {
+/** @type {import('../../../.svelte-kit/types/src/routes/checkout/__types/[id]').PageServerLoad} */
+export async function load({ params }) {
 	// `params.id` comes from [id].js
 	let item;
 
-	if (isNaN(parseInt(params.id))) return { status: 404 };
+	if (isNaN(parseInt(params.id))) return error(400, 'not found');
 
 	item = await prisma.book.findUnique({
 		// vv easy db manager
@@ -15,15 +16,11 @@ export async function GET({ params }) {
 	});
 
 	if (item) {
-		return {
-			status: 200,
-			headers: {},
-			body: { item } // if we found the book, give the information back.
-		};
+		return json(item, {
+			headers: {}
+		});
 	}
 
-	return {
-		status: 404 // idk what happened, probably didn't find the book
-	};
+	return error(400, 'not found');
 }
 // try to add

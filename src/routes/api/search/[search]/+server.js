@@ -1,11 +1,9 @@
-import { prisma } from '../../books/_prismac.js';
+import { json } from '@sveltejs/kit';
+import { prisma } from '../../../books/_prismac.js';
 
-/** @type {import('../../../.svelte-kit/types/src/routes/books/__types/index').RequestHandler} */
 export async function GET({ params }) {
 	// `params.id` comes from [id].js
-	let found_books;
-
-	found_books = await prisma.book.findMany({
+	let found_books = await prisma.book.findMany({
 		// vv easy db manager
 		where: {
 			title: {
@@ -15,14 +13,8 @@ export async function GET({ params }) {
 	});
 
 	if (found_books) {
-		return {
-			status: 200,
-			headers: {},
-			body: found_books // if we found the book, give the information back.
-		};
+		return new Response(JSON.stringify(found_books));
 	}
 
-	return {
-		status: 404 // idk what happened, probably didn't find the book
-	};
+	return new Response(undefined, { status: 404 });
 }
