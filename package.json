@@ -41,6 +41,7 @@
 	"dependencies": {
 		"@prisma/client": "^4.1.1",
 		"daisyui": "^2.17.0",
+		"svelte-language-server": "^0.14.37",
 		"vite": "^3.0.1"
 	}
 }
