@@ -1,14 +1,14 @@
 <script>
 	// populated with data from the endpoint
 	export let data;
-	let { item } = data;
+	let {item, book_info} = data;
 </script>
 
 <div class="hero min-h-screen bg-base-200">
 	<div class="hero-content flex-col lg:flex-row-reverse">
 		<div class="text-center lg:text-left">
 			<h1 class="text-5xl font-bold">Checkout now?</h1>
-			<p class="py-6 font-semibold text-lg">{item.title}</p>
+			<p class="py-6 font-semibold text-lg">{book_info.title}</p>
 		</div>
 		<div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 			<div class="card-body">
