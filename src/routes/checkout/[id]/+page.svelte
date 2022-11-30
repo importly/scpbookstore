@@ -21,7 +21,7 @@
 				</div>
 				<div class="form-control mt-6">
 					<button class="btn btn-primary">Checkout</button>
-					<a href="../books/16" class="btn btn-primary mt-3">Review Book</a>
+					<a href="../books/{item.bookId}" class="btn btn-primary mt-3">Review Book</a>
 				</div>
 			</div>
 		</div>
