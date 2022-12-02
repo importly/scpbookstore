@@ -4,20 +4,45 @@
 	export let data: PageData;
 
     let stuff = {
-        name: '',
-        des: '',
-        sub: '',
-        type: '',
-        year: '',
-        pros: '',
-        cons: '',
-        file: '',
+        name:   '',
+        des:    '',
+        sub:    '',
+        type:   '',
+        year:   '',
+        pros:   '',
+        cons:   '',
         rating: '',
-        link: '',
+        link:   '',
+		uploader: '',
     };
-    let submit = () => {
-        console.log(stuff);
+	let final = undefined;
+    let submit = async () => {
+        let response = await fetch('/input_book', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(stuff)
+		})
+		final = await response.json();
+		console.log(final)
     }
+
+	let clear = () => {
+		stuff = {
+			name:   '',
+			des:    '',
+			sub:    '',
+			type:   '',
+			year:   '',
+			pros:   '',
+			cons:   '',
+			rating: '',
+			link:   '',
+			uploader: '',
+		}
+	}
+
 </script>
 
 <!-- Path: src\routes\input\+page.svelte -->
@@ -69,18 +94,27 @@
 
             <label class="input-group">
 				<span class="font-bold">Rating</span>
-				<textarea bind:value={stuff.rating} class="textarea textarea-primary w-full max-w-xs" placeholder="..."></textarea>
+				<input bind:value={stuff.rating} type="text" placeholder="5.0" class="input input-bordered w-full max-w-xs" />
 			</label>
 
             <label class="input-group">
 				<span class="font-bold">Online Link</span>
 				<input bind:value={stuff.link} type="text" placeholder="AP WORLD HISTORY:MODERN" class="input input-bordered w-full max-w-xs" />
 			</label>
-            
-            <span class="font-bold">General Photo</span>
-            <input bind:value={stuff.file} type="file" class="file-input file-input-bordered w-full max-w-xs" />
+
+			<label class="input-group">
+				<span class="font-bold">Your Id</span>
+				<input bind:value={stuff.uploader} type="text" placeholder="12345678" class="input input-bordered w-full max-w-xs" />
+			</label>
+
+			{#if final}
+				<div class="text-red-500">{final.status}</div>
+				
+				<button class="btn btn-secondary" on:click={clear} >Clear Form</button>
+			{/if}
 
             <button class="btn" on:click={submit} >Submit Book</button>
+			
 		</div>
 	</div>
 </div>

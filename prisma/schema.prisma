@@ -33,6 +33,7 @@ model PhysicalBook {
   id            Int      @id @default(autoincrement())
   image         String?
   date_uploaded DateTime @default(now())
+  description   String?
   uploader      Int /// student id
   ispublic      Boolean  @default(true)
   condition     Int /// scale from 10(Brand New) to 1(Very Used).
