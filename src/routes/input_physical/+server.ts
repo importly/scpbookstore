@@ -1,7 +1,7 @@
 import { prisma } from '../books/_prismac';
-import type { RequestHandler } from './$types';
 
-export const POST: RequestHandler = async ({ request }) => {
+
+export const POST: any = async ({ request }) => {
 	const body = await request.json();
 	try {
 		let new_book = await prisma.physicalBook.create({
