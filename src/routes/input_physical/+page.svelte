@@ -1,5 +1,7 @@
 <script lang="ts">
-	export let data: any;
+	import type { PageData } from './$types';
+
+	export let data: PageData;
 
     let stuff = {
 		uploader: '',
@@ -8,7 +10,7 @@
 		description: '',
     };
 
-	let final:any = undefined;
+	let final:any = "none";
     let submit = async () => {
         let response = await fetch('/input_physical', {
 			method: 'POST',
@@ -60,7 +62,7 @@
 				<input bind:value={stuff.unique_book_id} type="text" placeholder="16" class="input input-bordered w-full max-w-xs" />
 			</label>
 
-			{#if final}
+			{#if final !== "none"}
 				<div class="text-red-500">{final.status}</div>
 				
 				<button class="btn btn-secondary" on:click={clear} >Clear Form</button>
