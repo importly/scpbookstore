@@ -10,7 +10,7 @@
 		unique_book_id: '',
 		description: '',
     };
-	let final = undefined;
+	let final:any = undefined;
     let submit = async () => {
         let response = await fetch('/input_physical', {
 			method: 'POST',
