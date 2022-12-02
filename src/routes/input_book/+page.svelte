@@ -57,7 +57,7 @@
 	<div class="grid place-items-center">
 		<div class="form-control gap-5">
 			<label class="input-group">
-				<span class="font-bold">Title</span>
+				<span class="font-bold">Title (Brand )</span>
 				<input bind:value={stuff.name} type="text" placeholder="AP World" class="input input-bordered w-full max-w-xs" />
 			</label>
 
@@ -103,7 +103,7 @@
 			</label>
 
 			<label class="input-group">
-				<span class="font-bold">Your Id</span>
+				<span class="font-bold">Your Student ID</span>
 				<input bind:value={stuff.uploader} type="text" placeholder="12345678" class="input input-bordered w-full max-w-xs" />
 			</label>
 

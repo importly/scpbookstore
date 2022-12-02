@@ -20,7 +20,6 @@
 			body: JSON.stringify(stuff)
 		})
 		final = await response.json();
-		console.log(final)
     }
 
 	let clear = () => {
@@ -34,8 +33,6 @@
 	}
 
 </script>
-
-<!-- Path: src\routes\input\+page.svelte -->
 
 <div class="glass bg-opacity-60 m-5 items-center rounded-box content-center">
 	<div class="text-center text-6xl font-bold">Book Submission</div>
@@ -59,11 +56,6 @@
             <label class="input-group">
 				<span class="font-bold">Conditon on a scale of 1-10</span>
 				<input bind:value={stuff.condition} type="text" placeholder="8" class="input input-bordered w-full max-w-xs" />
-			</label>
-            
-			<label class="input-group">
-				<span class="font-bold">Your rating 1-5</span>
-				<input bind:value={stuff.rating} type="text" placeholder="4" class="input input-bordered w-full max-w-xs" />
 			</label>
 
             <label class="input-group">
