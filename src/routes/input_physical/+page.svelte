@@ -6,10 +6,10 @@
     let stuff = {
 		uploader: '',
 		condition: '',
-		rating: '',
 		unique_book_id: '',
 		description: '',
     };
+
 	let final:any = undefined;
     let submit = async () => {
         let response = await fetch('/input_physical', {
@@ -26,7 +26,6 @@
 		stuff = {
 			uploader: '',
 			condition: '',
-			rating: '',
 			description: '',
 			unique_book_id: '',
 		}

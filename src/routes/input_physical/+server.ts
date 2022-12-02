@@ -8,7 +8,6 @@ export const POST: RequestHandler = async ({ request }) => {
 			data: {
 				uploader: parseInt(body.uploader),
 				condition: parseInt(body.condition),
-				rating: parseFloat(body.rating),
 				bookId: parseInt(body.unique_book_id),
 				description: body.des
 			}
