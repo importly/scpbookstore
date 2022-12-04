@@ -16,7 +16,8 @@ model Book {
   image         String?
   date_uploaded DateTime       @default(now())
   uploader      Int /// student id
-  ispublic      Boolean        @default(true)
+  checked_out      Boolean        @default(true)
+  condition     Int              @default(5) /// scale from 10(Brand New) to 1(Very Used).
   title         String
   description   String?
   subject       String /// class type
@@ -26,20 +27,5 @@ model Book {
   year          Int            @default(2022) /// year of publication
   rating        Float          @default(2.5) /// 0.5-5 star scale
   onlinelink    String?        @default("")
-  physicalbooks PhysicalBook[]
-}
-
-model PhysicalBook {
-  id            Int      @id @default(autoincrement())
-  image         String?
-  date_uploaded DateTime @default(now())
-  description   String?
-  uploader      Int /// student id
-  ispublic      Boolean  @default(true)
-  condition     Int /// scale from 10(Brand New) to 1(Very Used).
-  rating        Float    @default(2.5) /// 0.5-5 star scale
-  taken         Boolean  @default(false)
-  Book          Book?    @relation(fields: [bookId], references: [id])
-  bookId        Int?
-  hashedId      String   @default("none")
+  hashedId      String         @default("none")
 }

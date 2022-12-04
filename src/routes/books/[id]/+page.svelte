@@ -30,7 +30,7 @@
 				<!-- svelte-ignore a11y-img-redundant-alt -->
 				<img
 					class="sm:w-3/4 md:w-1/2 lg:w-3/4 rounded-lg sm:my-1 md:my-3 lg:my-4"
-					src={item.image}
+					src={"../"+item.image}
 					alt="Book image"
 				/>
 			</figure>

@@ -9,7 +9,7 @@ export async function load({ params }) {
 	books = await prisma.book.findMany({
 		// vv easy db manager
 		where: {
-			ispublic: true // look for a unique book with in the book database with the id given by the website.
+			checked_out: false // look for a unique book with in the book database with the id given by the website.
 		} // id is always unique becuase there is only one id per book, it auto increments.
 	});
 
