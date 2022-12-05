@@ -13,7 +13,6 @@ export async function load({ params }) {
 	if (!book_info) {
 		return error(404, 'Book not found');
 	}
-
 	return { book_info };
 }
 // try to add
