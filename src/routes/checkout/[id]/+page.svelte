@@ -1,7 +1,7 @@
 <script>
 	// populated with data from the endpoint
 	export let data;
-	let {item, book_info} = data;
+	let {book_info} = data;
 </script>
 
 <div class="hero min-h-screen bg-base-200">
@@ -21,7 +21,7 @@
 				</div>
 				<div class="form-control mt-6">
 					<button class="btn btn-primary">Checkout</button>
-					<a href="../books/{item.bookId}" class="btn btn-primary mt-3">Review Book</a>
+					<a href="../books/{book_info.id}" class="btn btn-primary mt-3">Review Book</a>
 				</div>
 			</div>
 		</div>

@@ -8,7 +8,9 @@ books = await prisma.book.findMany({});
 for (let i = 0; i < books.length; i++) {
 	let book = books.at(i);
 
-    await prisma.book.update({where: {id: book.id}, data: {checked_out: false}});
+    // await prisma.book.update({where: {id: book.id}, data: {checked_out: false}}); // set all books to not checked out
+
+
 
     // Fix title formatting
 
@@ -31,11 +33,11 @@ for (let i = 0; i < books.length; i++) {
 
 	// Hashing books
 
-	// const hash = encoder.createHash('sha256');
-	// hash.update(book?.id.toString()+":stantonbooks")
-	// let hashed = hash.digest('base64url')
-	// console.log('"'+hashed+'",')
-	// await prisma.book.update({where:{id:book.id},data:{hashedId:hashed}})
+	const hash = encoder.createHash('sha256');
+	hash.update(book?.id.toString()+":stantonbooks")
+	let hashed = hash.digest('base64url')
+	console.log('"'+book?.id+'":"'+hashed+'",')
+	await prisma.book.update({where:{id:book.id},data:{hashedId:hashed}})
 }
 
 // books = await prisma.book.findMany({});

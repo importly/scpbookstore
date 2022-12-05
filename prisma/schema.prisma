@@ -13,12 +13,12 @@ datasource db {
 
 model Book {
   id            Int            @id @default(autoincrement())
-  image         String?
+  image         String?   
   date_uploaded DateTime       @default(now())
   uploader      Int /// student id
-  checked_out      Boolean        @default(true)
-  condition     Int              @default(5) /// scale from 10(Brand New) to 1(Very Used).
-  title         String
+  checked_out   Boolean        @default(true)
+  condition     Int            @default(5) /// scale from 10(Brand New) to 1(Very Used).
+  title         String     
   description   String?
   subject       String /// class type
   book_type     Int /// 1 Prep, 2 Summer Reading, 3 Other
