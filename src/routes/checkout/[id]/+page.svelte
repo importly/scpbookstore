@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -34,8 +34,6 @@
     }
 
 </script>
-
-<!-- Path: src\routes\input\+page.svelte -->
 
 <div class="glass bg-opacity-60 m-5 items-center rounded-box content-center">
 	<div class="text-center text-6xl font-bold">Book Update</div>
@@ -144,13 +142,30 @@
             <button class="btn" on:click={submit}>Submit Book</button>
 		</div>
 	</div>
-</div>
+</div> -->
 
 
-<!-- <script>
+<script>
 	// populated with data from the endpoint
 	export let data;
 	let {book_info} = data;
+	let loaner;
+	let final;
+
+
+
+	let submit = async () => {
+        let response = await fetch('/checkout', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({"id":book_info.id,"loaner":loaner})
+		})
+		final = await response.json();
+		console.log(final)
+    }
+	
 </script>
 
 <div class="hero min-h-screen bg-base-200">
@@ -161,18 +176,23 @@
 		</div>
 		<div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 			<div class="card-body">
+				{#if final}
+					<div class="font-bold">{final.status}</div>
+				{:else}
 				<div class="form-control">
 					<label class="label">
 						<span class="label-text">Enter Your Student ID and Press Checkout Below to Confirm</span
 						>
 					</label>
-					<input type="text" placeholder="Student ID" class="input input-bordered" />
+					<input bind:value={loaner} type="text" placeholder="Student ID" class="input input-bordered" />
 				</div>
 				<div class="form-control mt-6">
-					<button class="btn btn-primary">Checkout</button>
+					<button on:click={submit} class="btn btn-primary">Checkout</button>
 					<a href="../books/{book_info.id}" class="btn btn-primary mt-3">Review Book</a>
 				</div>
+				{/if}
+				
 			</div>
 		</div>
 	</div>
-</div> -->
+</div> 
