@@ -25,7 +25,8 @@ export const POST: RequestHandler = async ({ request }) => {
         console.log(book);
         console.log(body)
 	} catch (e) {
+		console.log(e.message);
 		return new Response(JSON.stringify({ status: e.message }));
 	}
-	return new Response(JSON.stringify({ status: 'Book Updated, Refresh to see Changes' }));
+	return new Response(JSON.stringify({ status: 'Congrats, You checked out this book' }));
 };
