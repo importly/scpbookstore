@@ -13,6 +13,9 @@ export async function load({ params }) {
 	if (!book_info) {
 		return error(404, 'Book not found');
 	}
-	return { book_info };
+	if (book_info.loaner) {
+		return {book_info, status:"You can not check this book out, already checked out."}
+	}
+	return { book_info, status: 'success' };
 }
 // try to add

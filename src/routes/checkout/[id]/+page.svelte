@@ -148,11 +148,13 @@
 <script>
 	// populated with data from the endpoint
 	export let data;
-	let {book_info} = data;
+	let {book_info,status} = data;
 	let loaner;
 	let final;
 
-
+	if (status != "success") {
+		final = {status: status}
+	}
 
 	let submit = async () => {
         let response = await fetch('/checkout', {
@@ -176,7 +178,7 @@
 		</div>
 		<div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 			<div class="card-body">
-				{#if final}
+				{#if final != undefined}
 					<div class="font-bold">{final.status}</div>
 				{:else}
 				<div class="form-control">

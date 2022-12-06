@@ -5,28 +5,20 @@ export const POST: RequestHandler = async ({ request }) => {
 	const body = await request.json();
 
 	try {
+        if (!body.loaner || body.loaner === '' || body.loaner.length != 8) {
+            throw new Error('Valid Student ID is required');
+        }
         let book = await prisma.book.update({
             where: {
                 id: body.id
             },
             data: {
-                title: body.title,
-                description: body.description,
-                subject: body.subject,
-                book_type: parseInt(body.type),
-                year: parseInt(body.year),
-                pros: body.pros,
-                cons: body.cons,
-                rating: parseFloat(body.rating),
-                onlinelink: body.onlinelink,
-                condition: parseInt(body.condition)
+                loaner: body.loaner,
             }
         });
-        console.log(book);
-        console.log(body)
 	} catch (e) {
 		console.log(e.message);
 		return new Response(JSON.stringify({ status: e.message }));
 	}
-	return new Response(JSON.stringify({ status: 'Congrats, You checked out this book' }));
+	return new Response(JSON.stringify({ status: 'Congrats, You checked out this book. Bring it back in two weeks.' }));
 };
