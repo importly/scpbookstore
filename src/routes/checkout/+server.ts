@@ -14,6 +14,7 @@ export const POST: RequestHandler = async ({ request }) => {
             },
             data: {
                 loaner: body.loaner,
+                checkout_date: new Date(),
             }
         });
 	} catch (e) {

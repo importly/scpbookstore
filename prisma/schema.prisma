@@ -29,4 +29,5 @@ model Book {
   onlinelink    String?        @default("")
   loaner        String?        @default("")
   hashedId      String         @default("none")
+  checkout_date DateTime       @default(now())
 }
