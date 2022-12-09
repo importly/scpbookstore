@@ -94,7 +94,7 @@
 							<img
 								class="sm:w-44 md:w-64 lg:w-72 rounded-lg sm:my-1 md:my-3 lg:my-4"
 								src={book.image}
-								alt="Book image"
+								alt="Book Image Not Uploaded Yet"
 							/>
 						</figure>
 						<div class="card-body">
@@ -124,7 +124,7 @@
 					<img
 						class="sm:w-44 md:w-64 lg:w-72 rounded-lg sm:my-1 md:my-3 lg:my-4"
 						src={book.image}
-						alt="Book image"
+						alt="Book Image Not Uploaded Yet"
 					/>
 				</figure>
 				<div class="card-body">
@@ -152,7 +152,7 @@
 			clip-rule="evenodd"
 		/>
 		<p class="text-black">
-			Made by Aryan Thakur, Jennifer Chen, Victor Zhang, and Sid Yerramilli <br /> 2022
+			Made by Aryan Thakur, Jennifer Chen, Victor Zhang, and Sid Yerramilli with the Stanton SGA<br /> 2022
 		</p>
 	</div>
 	<!-- <div class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
