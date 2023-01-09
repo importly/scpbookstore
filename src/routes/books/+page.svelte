@@ -32,7 +32,6 @@
 
 	$: {
 		promise = fetch_books(search_term);
-		console.log(promise);
 	}
 </script>
 
