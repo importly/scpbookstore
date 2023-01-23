@@ -9,11 +9,11 @@ export async function load({ params }) {
 		return error(404, 'Not found');
 	}
 	if (params.id === 'login') {
-		return { type: 'login' }
+		return { type: 'login' };
 	}
-	
-	if (params.id===env.HASHED_ID) {
-		return { type: 'admin' }
+
+	if (params.id === env.HASHED_ID) {
+		return { type: 'admin' };
 	}
 }
 // try to add

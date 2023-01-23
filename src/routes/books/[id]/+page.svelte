@@ -30,7 +30,7 @@
 				<!-- svelte-ignore a11y-img-redundant-alt -->
 				<img
 					class="sm:w-3/4 md:w-1/2 lg:w-3/4 rounded-lg sm:my-1 md:my-3 lg:my-4"
-					src={"../"+item.image}
+					src={'../' + item.image}
 					alt="Book image"
 				/>
 			</figure>
@@ -146,12 +146,12 @@
 				</div>
 			</div>
 			{#if item.onlinelink}
-			<div class="btn-group justify-center mt-5">
-				<!-- <a class="btn btn-primary">Pick Up</a> -->
-				<a href={item.onlinelink} target="_blank" rel="noreferrer noopener" class="btn btn-second"
-					>Amazon Link</a
-				>
-			</div>
+				<div class="btn-group justify-center mt-5">
+					<!-- <a class="btn btn-primary">Pick Up</a> -->
+					<a href={item.onlinelink} target="_blank" rel="noreferrer noopener" class="btn btn-second"
+						>Amazon Link</a
+					>
+				</div>
 			{/if}
 		</div>
 	</div>

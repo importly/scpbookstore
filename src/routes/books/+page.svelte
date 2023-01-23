@@ -151,7 +151,8 @@
 			clip-rule="evenodd"
 		/>
 		<p class="text-black">
-			Made by Aryan Thakur, Jennifer Chen, Victor Zhang, and Sid Yerramilli with the Stanton SGA<br /> 2022
+			Made by Aryan Thakur, Jennifer Chen, Victor Zhang, and Sid Yerramilli with the Stanton SGA<br
+			/> 2022
 		</p>
 	</div>
 	<!-- <div class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
