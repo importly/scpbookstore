@@ -14,6 +14,8 @@ export async function load({ params }) {
 
 	if (params.id === env.HASHED_ID) {
 		return { type: 'admin' };
+	} else {
+		return { type: 'ee' };
 	}
 }
 // try to add
