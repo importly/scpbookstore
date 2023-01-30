@@ -1,200 +1,69 @@
-<!-- <script lang="ts">
+<script lang="ts">
 	import type { PageData } from './$types';
+	import { goto, invalidate } from '$app/navigation';
+	//import crypto from 'crypto';
 
 	export let data: PageData;
+	let { type } = data;
+	let pass = '';
 
-	let { book_info } = data
+	let encodeing = async () => {
+		const encoder = new TextEncoder();
+		const place = await window.crypto.subtle.digest(
+			'SHA-256',
+			encoder.encode(pass + ':stantonbooks')
+		);
+		const hashArray = Array.from(new Uint8Array(place));
+		const hashHex = hashArray.map((b) => b.toString(16).padStart(2, '0')).join('');
+		goto(`/admin/${hashHex}`).then(()=>{location.reload()})
 
-    let stuff = {
-        name:   book_info?.title,
-        des:    book_info?.description,
-        sub:    book_info?.subject,
-        type:   book_info?.book_type,
-        year:   book_info?.year,
-        pros:   book_info?.pros,
-        cons:   book_info?.cons,
-        rating: book_info?.rating,
-        link:   book_info?.onlinelink,
-		uploader: book_info?.uploader,
-		condition: book_info?.condition,
-		id: book_info?.id
-
-    };
-	let final = undefined;
-    let submit = async () => {
-        let response = await fetch('/checkout', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify(stuff)
-		})
-		final = await response.json();
-		console.log(final)
-    }
-
+	};
 </script>
 
-<div class="glass bg-opacity-60 m-5 items-center rounded-box content-center">
-	<div class="text-center text-6xl font-bold">Book Update</div>
-
-
-
-	<div class="text-center text-2xl font-bold m-5">
-		This page is to update and change book Information<br />
-	</div>
-
-	<div class="text-center text-2xl font-bold m-5">
-		Current Book Information Below <br />
-
-		<div class="divider font-extrabold">Title</div>
-		{book_info?.title}<br />
-		<div class="divider font-extrabold">Description</div>
-		{book_info?.description}<br />
-		<div class="divider font-extrabold">Subject</div>
-		{book_info?.subject}<br />
-		<div class="divider font-extrabold">Book Type</div>
-		1 = AP Prep, 2 = IB Prep, 3 = General Prep, 4 = Other<br />
-		{book_info?.book_type}<br />
-		<div class="divider font-extrabold">Year</div>
-		{book_info?.year}<br />
-		<div class="divider font-extrabold">Pros</div>
-		{book_info?.pros}<br />
-		<div class="divider font-extrabold">Cons</div>
-		{book_info?.cons}<br />
-		<div class="divider font-extrabold">Rating</div>
-		{book_info?.rating}<br />
-		<div class="divider font-extrabold">Online Link</div>
-		{book_info?.onlinelink}<br />
-		<div class="divider font-extrabold">Condition</div>
-		{book_info?.condition}<br />
-		<div class="divider font-extrabold">Code ID</div>
-		{book_info?.id}<br />
-	</div>
-
-	<div class="text-center text-2xl font-bold m-5">
-		If anything is wrong, change it down here<br />
-	</div>
-
-
-	<div class="grid place-items-center">
-		<div class="form-control gap-5">
-			<label class="input-group">
-				<span class="font-bold">Title</span>
-				<input bind:value={stuff.name} type="text" placeholder="AP World" class="input input-bordered w-full max-w-xs" />
-			</label>
-
-			<label class="input-group">
-				<span class="font-bold">Description</span>
-				<textarea bind:value={stuff.des} class="textarea textarea-primary w-full max-w-xs" placeholder="..."></textarea>
-			</label>
-
-            <label class="input-group">
-				<span class="font-bold">Subject</span>
-				<input bind:value={stuff.sub} type="text" placeholder="AP WORLD HISTORY:MODERN" class="input input-bordered w-full max-w-xs" />
-			</label>
-            
-            <span class="text-center"> Book Type: Input a number: 1 = AP Prep, 2 = IB Prep, 3 = General Prep, 4 = Other </span>
-            <label class="input-group">
-				<span class="font-bold">Book Type</span>
-				<textarea bind:value={stuff.type} class="textarea textarea-primary w-full max-w-xs" placeholder="Bio"></textarea>
-			</label>
-
-            <label class="input-group">
-				<span class="font-bold">Year</span>
-				<input bind:value={stuff.year} type="text" placeholder="2022" class="input input-bordered w-full max-w-xs" />
-			</label>
-
-            <label class="input-group">
-				<span class="font-bold">Pros</span>
-				<textarea bind:value={stuff.pros} class="textarea textarea-primary w-full max-w-xs" placeholder="..."></textarea>
-			</label>
-
-            <label class="input-group">
-				<span class="font-bold">Cons</span>
-				<textarea bind:value={stuff.cons} class="textarea textarea-primary w-full max-w-xs" placeholder="..."></textarea>
-			</label>
-
-            <label class="input-group">
-				<span class="font-bold">Rating 1-5</span>
-				<input bind:value={stuff.rating} type="text" placeholder="5.0" class="input input-bordered w-full max-w-xs" />
-			</label>
-
-			<label class="input-group">
-				<span class="font-bold">Condition 1-10</span>
-				<input bind:value={stuff.condition} type="text" placeholder="5.0" class="input input-bordered w-full max-w-xs" />
-			</label>
-
-            <label class="input-group">
-				<span class="font-bold">Online Link</span>
-				<input bind:value={stuff.link} type="text" placeholder="AP WORLD HISTORY:MODERN" class="input input-bordered w-full max-w-xs" />
-			</label>
-
-			<label class="input-group">
-				<span class="font-bold">Your Student ID</span>
-				<input bind:value={stuff.uploader} type="text" placeholder="12345678" class="input input-bordered w-full max-w-xs" />
-			</label>
-
-			{#if final}
-				<div class="text-red-500">{final.status}</div>
-			{/if}
-
-            <button class="btn" on:click={submit}>Submit Book</button>
+<div class="flex items-center min-h-screen p-4 bg-gray-100 lg:justify-center">
+	<div
+		class="flex flex-col overflow-hidden bg-white rounded-md shadow-lg max md:flex-row md:flex-1 lg:max-w-screen-md"
+	>
+		<div
+			class="p-4 py-6 text-white bg-primary md:w-80 md:flex-shrink-0 md:flex md:flex-col md:items-center md:justify-evenly"
+		>
+			<div class="my-3 text-4xl font-bold tracking-wider text-center">Stanton Bookstore Admin</div>
 		</div>
-	</div>
-</div> -->
-
-
-<script>
-	// populated with data from the endpoint
-	export let data;
-	let {book_info,status} = data;
-	let loaner;
-	let final;
-
-	if (status != "success") {
-		final = {status: status}
-	}
-
-	let submit = async () => {
-        let response = await fetch('/checkout', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({"id":book_info.id,"loaner":loaner})
-		})
-		final = await response.json();
-		console.log(final)
-    }
-	
-</script>
-
-<div class="hero min-h-screen bg-base-200">
-	<div class="hero-content flex-col lg:flex-row-reverse">
-		<div class="text-center lg:text-left">
-			<h1 class="text-5xl font-bold">Checkout now?</h1>
-			<p class="py-6 font-semibold text-lg">{book_info.title}</p>
-		</div>
-		<div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-			<div class="card-body">
-				{#if final != undefined}
-					<div class="font-bold">{final.status}</div>
-				{:else}
-				<div class="form-control">
-					<label class="label">
-						<span class="label-text">Enter Your Student ID and Press Checkout Below to Confirm</span
-						>
-					</label>
-					<input bind:value={loaner} type="text" placeholder="Student ID" class="input input-bordered" />
+		<div class="p-5 bg-white md:flex-1">
+			<h3 class="my-4 text-2xl font-semibold text-gray-700">Login</h3>
+			<form action="#" class="flex flex-col space-y-5">
+				<div class="flex flex-col space-y-1">
+					<div class="flex items-center justify-between">
+						<label for="password" class="text-sm font-semibold text-gray-500">Password</label>
+					</div>
+					<input
+						type="password"
+						id="password"
+						bind:value={pass}
+						class="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-orange-700"
+					/>
 				</div>
-				<div class="form-control mt-6">
-					<button on:click={submit} class="btn btn-primary">Checkout</button>
-					<a href="../books/{book_info.id}" class="btn btn-primary mt-3">Review Book</a>
+				<div>
+					<button
+						type="submit"
+						on:click={encodeing}
+						class="w-full px-4 py-2 text-lg font-semibold text-white transition-colors duration-300 bg-blue-500 rounded-md shadow hover:bg-blue-600 focus:outline-none focus:ring-blue-200 focus:ring-4"
+					>
+						Log in
+					</button>
 				</div>
+				{#if type == 'ee'}
+				<div class="alert alert-error shadow-lg">
+					<div>
+					  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current flex-shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+					  <span>Incorrect Password</span>
+					</div>
+				  </div>
 				{/if}
-				
-			</div>
+			</form>
 		</div>
+		
 	</div>
-</div> 
+	
+</div>
+

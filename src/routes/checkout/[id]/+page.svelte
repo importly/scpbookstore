@@ -143,31 +143,28 @@
 		</div>
 	</div>
 </div> -->
-
-
 <script>
 	// populated with data from the endpoint
 	export let data;
-	let {book_info,status} = data;
+	let { book_info, status } = data;
 	let loaner;
 	let final;
 
-	if (status != "success") {
-		final = {status: status}
+	if (status != 'success') {
+		final = { status: status };
 	}
 
 	let submit = async () => {
-        let response = await fetch('/checkout', {
+		let response = await fetch('/checkout', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify({"id":book_info.id,"loaner":loaner})
-		})
+			body: JSON.stringify({ id: book_info.id, loaner: loaner })
+		});
 		final = await response.json();
-		console.log(final)
-    }
-	
+		console.log(final);
+	};
 </script>
 
 <div class="hero min-h-screen bg-base-200">
@@ -181,20 +178,25 @@
 				{#if final != undefined}
 					<div class="font-bold">{final.status}</div>
 				{:else}
-				<div class="form-control">
-					<label class="label">
-						<span class="label-text">Enter Your Student ID and Press Checkout Below to Confirm</span
-						>
-					</label>
-					<input bind:value={loaner} type="text" placeholder="Student ID" class="input input-bordered" />
-				</div>
-				<div class="form-control mt-6">
-					<button on:click={submit} class="btn btn-primary">Checkout</button>
-					<a href="../books/{book_info.id}" class="btn btn-primary mt-3">Review Book</a>
-				</div>
+					<div class="form-control">
+						<label class="label">
+							<span class="label-text"
+								>Enter Your Student ID and Press Checkout Below to Confirm</span
+							>
+						</label>
+						<input
+							bind:value={loaner}
+							type="text"
+							placeholder="Student ID"
+							class="input input-bordered"
+						/>
+					</div>
+					<div class="form-control mt-6">
+						<button on:click={submit} class="btn btn-primary">Checkout</button>
+						<a href="../books/{book_info.id}" class="btn btn-primary mt-3">Review Book</a>
+					</div>
 				{/if}
-				
 			</div>
 		</div>
 	</div>
-</div> 
+</div>
