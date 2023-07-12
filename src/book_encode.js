@@ -3,10 +3,20 @@ import { prisma } from './routes/books/_prismac.js';
 
 let books;
 
-books = await prisma.book.findMany({});
+for (let i = 135; i < 185; i++) {
+	// let book = await prisma.book.create({
+	// 	data: {
+	// 		id: i,
+	// 		uploader: 11877396,
+	// 		title: "None",
+	// 		book_type: 1,
+	// 		subject: "NONE",
+	// 		checked_out: false,
+	// 	},
+	// })
+	
+   let book = await prisma.book.findUnique({ where: { id: i } }).then((booky) => {});
 
-for (let i = 0; i < books.length; i++) {
-	let book = books.at(i);
 
 	// await prisma.book.update({where: {id: book.id}, data: {checked_out: false}}); // set all books to not checked out
 
@@ -31,10 +41,10 @@ for (let i = 0; i < books.length; i++) {
 	// Hashing books
 
 	const hash = encoder.createHash('sha256');
-	hash.update(book?.id.toString() + ':stantonbooks');
+	hash.update(i.toString() + ':stantonbooks');
 	let hashed = hash.digest('base64url');
-	console.log('"' + book?.id + '":"' + hashed + '",');
-	await prisma.book.update({ where: { id: book.id }, data: { hashedId: hashed } });
+	console.log('"' + i + '":"' + hashed + '",');
+	await prisma.book.update({ where: { id: i }, data: { hashedId: hashed } });
 }
 
 // books = await prisma.book.findMany({});
