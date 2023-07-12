@@ -12,10 +12,6 @@ export async function load({ params }) {
 		return { type: 'login' };
 	}
 
-	if (params.id === env.HASHED_ID) {
-		return { type: 'admin' };
-	} else {
-		return { type: 'ee' };
-	}
+	return { type: 'ee' };
+
 }
-// try to add
