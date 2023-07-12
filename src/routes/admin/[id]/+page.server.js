@@ -11,7 +11,12 @@ export async function load({ params }) {
 	if (params.id === 'login') {
 		return { type: 'login' };
 	}
-
-	return { type: 'ee' };
+	
+	if (params.id === env.HASHED_ID) {
+		return { type: 'admin' };
+	} else {
+		return { type: 'ee' };
+	}
+}
 
 }
